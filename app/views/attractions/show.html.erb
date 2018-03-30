@@ -1,0 +1,11 @@
+
+<p> Ride Name:<%= @attraction.name %> </p>
+<%= @attraction.min_height %>
+<%= @attraction.happiness_rating %>
+<%= @attraction.nausea_rating %>
+
+<% if @user.admin? %>
+  <%= link_to "Edit Attraction", edit_attraction_path %>
+<% else %>
+<td><%= button_to 'Go on this ride', {:controller => "rides", :action => "create", :attraction_id => @attraction.id} , :method=>:post  %></td>
+<% end %>
